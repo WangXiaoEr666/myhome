@@ -1,5 +1,8 @@
 import React from 'react'
 import './Login.css'
+// // 导入axios
+import axios from 'axios'
+
 // 导入对应的使用组件
 import { Icon, Button, Form, Divider } from 'semantic-ui-react'
 
@@ -22,7 +25,15 @@ class Login extends React.Component {
     })
   }
   // 点击提交功能
-  submit = () => {}
+  submit = async () => {
+    // http://47.96.21.88:8086/users/login  登录接口请求地址
+    console.log(this.state)
+   let res = await axios.post('http://47.96.21.88:8086/users/login',{
+      uname:this.state.username,
+      pwd:this.state.password
+    })
+    console.log(res)
+  }
   render() {
     return (
       <div className="login-container">
