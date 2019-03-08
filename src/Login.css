@@ -1,0 +1,33 @@
+.login-container{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.login-container .login-top{
+  width: 100%;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  background: rgba(28, 223, 181, 0.904);
+  margin-bottom: 30px;
+
+}
+.login-container .login-form{
+  padding:0 10px;
+}
+.login-container .divider{
+  padding:0 10px;
+}
+.login-container .login-end{
+  margin:15px 10px 30px 10px;
+
+}
+.login-container  .login-chat{
+  text-align: center
+}
+
+.login-container  .login-chat i{
+  margin: 0 20px;
+}

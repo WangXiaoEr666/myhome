@@ -2,15 +2,12 @@ import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import './App.css'
-// 导入登录页面样式
-import './Login.css'
 // 导入登录页面组件
 import Login from './Login'
-
 // 导入主页面
 import Main from './module/main'
-
-
+// 导入semantic-ui-css样式(公用的css样式导入在这里，其它小组件中的样式放在他们自己的组件里)
+import 'semantic-ui-css/semantic.min.css'
 
 class App extends Component {
   render() {
