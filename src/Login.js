@@ -1,10 +1,12 @@
 import React from 'react'
+// 导入编程式路由导航
+import {withRouter} from 'react-router-dom'
+// 导入login的css样式
 import './Login.css'
 // // 导入axios
 import axios from 'axios'
-
 // 导入对应的使用组件
-import { Icon, Button, Form, Divider } from 'semantic-ui-react'
+import { Icon, Button, Form, Divider} from 'semantic-ui-react'
 
 class Login extends React.Component {
   constructor(props) {
@@ -27,12 +29,26 @@ class Login extends React.Component {
   // 点击提交功能
   submit = async () => {
     // http://47.96.21.88:8086/users/login  登录接口请求地址
-    console.log(this.state)
+    // console.log(this.state)
+    // 手动验证如果未填写信息，停止发送请求
+    if (this.state.username==='' && this.state.password==='') {
+      alert('请输入完整信息')
+      return 
+    }
    let res = await axios.post('http://47.96.21.88:8086/users/login',{
       uname:this.state.username,
       pwd:this.state.password
     })
-    console.log(res)
+    const {history} = this.props
+
+    // 如果账号密码正确，跳转页面，存储session信息
+    if (res.data.meta.status===200) {
+      // 存储用户登录信息，token
+      sessionStorage.setItem('token',res.data.data.token)
+      // 账号密码正确，则跳转到home页面
+      history.push('/home')
+    }
+
   }
   render() {
     return (
@@ -82,4 +98,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default withRouter(Login)
