@@ -11,6 +11,7 @@ import 'semantic-ui-css/semantic.min.css'
 import './assets/fonts/style.css'
 // 导入限制登录的组件
 import AuthCheck from './Auth.js'
+// 
 
  
 class App extends Component {
